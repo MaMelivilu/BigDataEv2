@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Blog / Informe</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts (opcional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('img/nice.gif');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: white;
+    }
+
+    .content-container {
+      background-color: rgb(14, 3, 27);
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 1400px;
+      margin: auto;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .header, .footer {
+      background-color: #0f1547;
+      padding: 1rem;
+      text-align: center;
+      color: #ffffff;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    h1, h2, h3 {
+      color: #0368ff;
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 1.2rem; 
+    }
+
+    .imagen-ajustada {
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 10px; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    📘 BigData
+  </div>
+
+  <div class="content-container">
+    <h1 class="text-center">Proyecto: Avistamientos OVNI</h1>
+    <p>Este proyecto documenta paso a paso el procesamiento de datos de avistamientos de OVNIs utilizando herramientas de Google Cloud Platform, como Cloud Storage, BigQuery, Dataprep y Looker Studio.</p>
+
+    <h3>1. Acceso al laboratorio</h3>
+    <p>
+      Se inicia el laboratorio, donde se nos entregan las credenciales para acceder al entorno de GCP.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+
+    <h3>2. Creación del bucket en Cloud Storage</h3>
+    <p>
+      Ingresamos con las credenciales proporcionadas, accedemos al proyecto y creamos un bucket llamado `giovanni-matias`
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <p>
+      Vista del bucket una vez creado:
+    </p>
+
+    <h3>3. Creación del Dataset en BigQuery</h3>
+    <p>
+      Creamos un dataset en BigQuery con el nombre `ovni`.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <p>
+      Vista de la creación del dataset en el proyecto
+    </p>
+
+    <h3>4. Uso de Dataprep y creación del Flow</h3>
+    <p>
+      Accedemos a Dataprep y creamos un flow llamado `Avistamientos`.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+
+    <h3>5. Carga del archivo CSV</h3>
+    <p>
+      Transformamos el archivo original de formato `.xlsx` a `.csv` y lo cargamos en el flow.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <p>
+      Estructura del flow luego de la carga:
+    </p>
+
+    <h3>6. Revisión del contenido del CSV</h3>
+    <p>
+      Verificamos que todos los datos se hayan cargado correctamente en Dataprep.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+
+    <h3>7. Limpieza de los datos</h3>
+    <p>
+      Eliminamos registros vacíos o inconsistentes para preparar el archivo.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <p>
+      Vista de la tabla limpia:
+    </p>
+    
+    <h3>8. Ejecución del Flow</h3>
+    <p>
+      Ejecutamos el Flow para aplicar los cambios.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+
+    <h3>9. Exportación del CSV limpio</h3>
+    <p>
+      Extraemos el archivo CSV procesado y lo subimos nuevamente al bucket `giovanni-matias`.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+
+    <h3>10. Creación de la tabla en BigQuery</h3>
+    <p>
+      Creamos la tabla `avistamientos` en el dataset `ovni`.
+    </p>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <p>
+      Tuvimos un inconveniente con la primera tabla, por lo que se debió crear una nueva.
+    </p>
+
+    <h3>11. Consultas SQL de validación</h3>
+    <p>
+      Ejecutamos las siguientes 3 consultas para validar los datos cargados.
+    </p>
+    <h4 style="font-weight: bold;">Consulta N° 1</h4>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <h4 style="font-weight: bold;">Consulta N° 2</h4>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <h4 style="font-weight: bold;">Consulta N° 3</h4>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    
+
+    <h3>12. Visualización de resultados en Looker Studio</h3>
+    <p>
+      Transformamos los resultados de las consultas en gráficos utilizando Looker Studio.
+    </p>
+    <h4 style="font-weight: bold;">Consulta N° 1</h4>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <h4 style="font-weight: bold;">Consulta N° 2</h4>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    <h4 style="font-weight: bold;">Consulta N° 3</h4>
+    <img src="img/4.jpg" class="imagen-ajustada" alt="Ejemplo de imagen">
+    
+
+    
+  </div>
+
+  <div class="footer">
+    🚀 Hecho por Giovanni Oyarzun y Matias Melivilu
+  </div>
+
+</body>
+</html>
